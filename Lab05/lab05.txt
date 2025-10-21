@@ -1,7 +1,0 @@
-My experience with the Lab was overall positive. It was interesting to try to find the data, but was definitely a bit confusing immediately.
-Since I was in the first group of students, I hadn't yet seen any tutorials for the Bloomberg terminal yet, and was struggling a little bit
-to figure out exactly how to access all the features. Only having 15 minutes to work on the Terminals, I didn't have much time to look at
-the information. I was able to find the information on APPL which was interesting to see, but due to limited time I didnt really get time to
-analyze it in depth or work with much about it. The biggest issue I encountered was just the immediate information overload, theres a lot of
-things you can do with the terminals clearly, but the UI wasn't super intuitive and took a couple minutes to get used to and understand how to
-navigate it.
