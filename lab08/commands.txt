@@ -1,0 +1,79 @@
+Part 1:
+
+CREATE TABLE courses (
+    crn INT(11) PRIMARY KEY,
+    prefix VARCHAR(4) NOT NULL,
+    number SMALLINT(4) NOT NULL,
+    title VARCHAR(255) NOT NULL
+    )
+COLLATE utf8_unicode_ci;
+
+CREATE TABLE students (
+    rin INT(9) PRIMARY KEY,
+    rcsID CHAR(7),
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    alias VARCHAR(100) NOT NULL,
+    phone INT(10)
+    )
+COLLATE utf8_unicode_ci;
+
+Part 2:
+
+ALTER TABLE students
+ADD street VARCHAR(255),
+ADD city VARCHAR(255),
+ADD state VARCHAR(255),
+ADD zip INT(5);
+
+INSERT INTO `students`(`rin`, `rcsID`, `first_name`, `last_name`, `alias`, `phone`, `street`, `city`, `state`, `zip`) 
+VALUES ('123456789','lowes','Steven','Lowe','Steve','0987234576','Duke','Americaville','Ohio','01234');
+INSERT INTO `students`(`rin`, `rcsID`, `first_name`, `last_name`, `alias`, `phone`, `street`, `city`, `state`, `zip`) 
+VALUES ('312398477','jenseng','Gabriella','Jensen','Gabriella','2759380485','Carlton','Columbia','Kansas','36478');
+INSERT INTO `students`(`rin`, `rcsID`, `first_name`, `last_name`, `alias`, `phone`, `street`, `city`, `state`, `zip`) 
+VALUES ('612986542','mcguire','Elias','McGuire','Eli','9847376423','Baker','Baleston','Colorado','84572');
+INSERT INTO `students`(`rin`, `rcsID`, `first_name`, `last_name`, `alias`, `phone`, `street`, `city`, `state`, `zip`) 
+VALUES ('791230493','dalem','Marilyn','Dale','Mary','3595712938','Arlington','Davenport','Missouri','17392');
+
+CREATE TABLE grades (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   crn BIGINT(11),
+   rin INT(9),
+   grade INT(3) NOT NULL,
+    
+    FOREIGN KEY (crn) REFERENCES courses(crn),
+    FOREIGN KEY (rin) REFERENCES students(rin)
+);
+
+ALTER TABLE courses
+MODIFY crn BIGINT;
+
+INSERT INTO `courses`(`crn`, `prefix`, `number`, `title`) 
+VALUES ('49302092736','CSCI','3920','Introduction to Looking things up on google');
+INSERT INTO `courses`(`crn`, `prefix`, `number`, `title`) 
+VALUES ('28402839281','MATH','6610','Advanced Addition');
+INSERT INTO `courses`(`crn`, `prefix`, `number`, `title`) 
+VALUES ('64920182831','ITWS','2000','Introduction to Restarting Your Computer');
+INSERT INTO `courses`(`crn`, `prefix`, `number`, `title`) 
+VALUES ('10293578211','HASS','4370','Advanced Juvenile Fiction Analysis');
+
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('10293578211','123456789','97');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('10293578211','312398477','75');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('10293578211','612986542','99');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('28402839281','791230493','88');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('28402839281','123456789','77');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('49302092736','312398477','100');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('49302092736','612986542','74');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('64920182831','791230493','70');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('64920182831','123456789','91');
+INSERT INTO `grades`(`crn`, `rin`, `grade`)
+VALUES ('64920182831','312398477','71');
